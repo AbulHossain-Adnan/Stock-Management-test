@@ -153,15 +153,14 @@
             },
             messages: {
             'date[]':{
-                required:"stock name field is not valid",
+                required:"date field is required",
               
             },
             'product_id[]':{
-                required:"coupon discount field is not valid",
-                //     maxlength:"Max 2 digits allowed",
-                // minlength:"Atlast 1 charecter required"
+                required:"product id  field is  required",
+              
             },
-            'quantity[]':"coupon start field is not valid",
+            'quantity[]':"quantity  field is  required",
            
             
             }
