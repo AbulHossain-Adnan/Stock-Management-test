@@ -19,16 +19,17 @@ class CustomLoginController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+        // $user = User::where('email',$request->email && 'password',Hash::check($request->password))
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         }
 
-        return redirect('admin/login')->with('error', 'Oppes! You have entered invalid credentials');
+        return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
     }
      public function adminlogout() {
       Auth::logout();
 
-      return redirect('admin/login');
+      return redirect()->route('login');
     }
 }

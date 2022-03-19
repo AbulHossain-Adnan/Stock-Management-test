@@ -20,10 +20,12 @@ class FileService{
       
       $file=$request['file'];
       $extension=$file->extension();
+
+      
    
         $batch  = Bus::batch([])->dispatch();
        
-      if($extension =="txt"){
+      if($extension == "txt"){
          $batch  = Bus::batch([])->dispatch();
          $doc = file_get_contents($file);
 
@@ -45,7 +47,12 @@ class FileService{
 
       else{
 
-         Excel::import(new FileImport,$file);
+        $data = Excel::import(new FileImport,$file);
+
+   
+      //   foreach($data as $item){
+      //      dd($item);
+      //   }
         
       }
 	}

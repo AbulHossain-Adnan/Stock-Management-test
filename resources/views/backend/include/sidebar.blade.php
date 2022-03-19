@@ -38,7 +38,7 @@
             <a href="{{route('home')}}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+              {{__('sideber.dashboard')}}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -49,7 +49,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Product
+              {{__('sideber.product')}}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -57,7 +57,7 @@
               <li class="nav-item">
                 <a href="{{route('product.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Products</p>
+                  <p>{{__('sideber.product_list')}}</p>
                 </a>
               </li>
               
@@ -65,211 +65,29 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Category
-                <i class="fas fa-angle-left right"></i>
+              {{__('sideber.stock')}}
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('category.index')}}" class="nav-link">
+                <a href="{{route('stock.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Categories</p>
+                  <p> {{__('sideber.stock_list')}}</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{route('sub_category.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Subcategories</p>
-                </a>
-              </li>
-             
+              
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Customers
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('customer.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Customer</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Sales
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('sales.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales</p>
-                </a>
-              </li>
-             
-            </ul>
-
-          </li>
-
-
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                File
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('file.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>File Create</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('processjob.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Processing Job List</p>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a href="{{route('failed_job.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Failed Job List</p>
-                </a>
-              </li>
-
-               <li class="nav-item">
-                <a href="{{route('job_live_history')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Live Job history</p>
-                </a>
-              </li>
-             
-             
-            </ul>
-
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Expired Domain
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('expireddomain.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ExpiredDomains List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('expireddomain.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ExpiredDomains create</p>
-                </a>
-              </li>
-            
-             
-            </ul>
-
-          </li>
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                UScity
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('uscity.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>US City List</p>
-                </a>
-              </li>
-             
-             
-            </ul>
-
-          </li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Orders
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('order.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Orders</p>
-                </a>
-              </li>
-            
-            </ul>
-            
-          </li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-                Report
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/sold_products')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>L 30 days Sold Products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/low_quantity')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Low quantity products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/top_customer')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Customers</p>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a href="{{url('/eachproductsold')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Each Product Sold</p>
-                </a>
-              </li>
-            </ul>
-            
-          </li>
+         
+      
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Extras
+                {{__('sideber.extra')}}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

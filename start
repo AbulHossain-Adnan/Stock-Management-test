@@ -25,7 +25,7 @@ RESET_DATABASES=false
 
 APP_DIRECTORY="$(pwd)"
 
-DATABASES=("inventory_test")
+DATABASES=("stock_management")
 GENERATE_DUMMY_DATA=true
 MYSQL_USER="root"
 MYSQL_PASSWORD="password"
@@ -125,24 +125,24 @@ for database in ${DATABASES[*]}; do
 done
 
 echo "Updating composer"
-eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app composer install"
+eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app composer install"
 
 echo "Clearing cache"
-eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app php artisan cache:clear"
-eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app php artisan config:clear"
-eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app php artisan view:clear"
+eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app php artisan cache:clear"
+eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app php artisan config:clear"
+eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app php artisan view:clear"
 
 echo "Running initial migrations"
 
 # migration
-eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app php artisan migrate"
+eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app php artisan migrate"
 
 # generate initial data
 # if [[ ${GENERATE_DUMMY_DATA} = true ]]; then
-#     eval "${DOCKER_COMMAND_PREFIX}docker exec -it inventory_test-app php artisan generate:dummy-data"
+#     eval "${DOCKER_COMMAND_PREFIX}docker exec -it stock_management-app php artisan generate:dummy-data"
 # fi
 
 echo "All Done!"
-echo "Go to http://www.inventory_test-dev.com/ to see it in action"
+echo "Go to http://www.stock_management-dev.com/ to see it in action"
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 

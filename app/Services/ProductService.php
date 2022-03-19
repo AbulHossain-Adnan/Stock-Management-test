@@ -2,43 +2,50 @@
 namespace App\Services;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 Class productservice{
+    
+	public function createOrUpdate($request, $product=null){
 
-	public function handle(Request $request){
-		
- $data= new Product();
-         $category_id=$request->category_id;
-        $category_id_count=count($category_id);
-        $data= new Product();
-        $data->name=$request->name;
-        $data->min_qty=$request->min_qty;
-        $data->price=$request->price;
-        $data->quantity=$request->quantity;
-        $data->subcategory_id=$request->subcategory_id;
-        if($request->hasfile('image')){
-            $image=array();
-            if($files = $request->file('image')){
-                foreach ($files as $key => $file) {
-                    $image_name= hexdec(uniqid());
-                    $extension=strtolower($file->getClientOriginalExtension());
-                    $image_full_name=$image_name.'.'.$extension;
-                    $file->move(public_path('product_images/'),$image_full_name);
-                    $image[]=$image_full_name;
-                   
-                }
-            }
-
-           $data->image=implode('|', $image);
-           if($category_id_count > 0){
-           $data->category_id=implode(',',$category_id);
-           }
-
-                      return $data;
-
-
+        if(is_null($product)){
+            $product= new Product();
+            $this->imageStoreOrUpdate($request);
+        }
+        $product->name=$request['name'];
+        $product->price=$request['price'];
+        $product->slug = Str::slug($request['name']);
+        $product->save();
+        $this->imageStoreOrUpdate($request,$product);
+        return $product;
 	}
+
+    public function imageStoreOrUpdate($request,$product=null){
+        if(is_null($product)){
+            $product = new Product();
+            if($request->file('image')){
+                $product->addMediaFromRequest('image')->toMediaCollection('image');   
+            }
+        }
+        else{
+            if($request->file('image')){
+                $product->clearMediaCollection('image');
+                $product->addMediaFromRequest('image')->toMediaCollection('image');
+            }
+        }
+    }
+
+    public function productDelete($product_id){
+        $product = Product::findOrFail($product_id);
+        $product->clearMediaCollection('image');
+        $product->delete();
+
+    }
+    public function productBulkDelete($request){
+      foreach($request->selectedColumn as $id){
+            $this->ProductDelete($id);
+        }
+    }
 }
 
-}
 

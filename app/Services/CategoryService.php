@@ -4,7 +4,7 @@ use App\Models\Category;
 use DataTables;
 
 class CategoryService{
-	public function conditions($request, $query=null,){
+	public function conditions($request, $query=null){
 		$keyword=$request->keyword;
         if ($request->keyword) {
             $query->where('name', 'like', "%{$keyword}%");

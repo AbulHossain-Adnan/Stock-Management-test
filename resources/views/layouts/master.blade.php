@@ -49,7 +49,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Total Customer</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_customer}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                         </div>
                         <div class="col-auto">
                              <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -66,7 +66,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Last 30 days sales</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lastmonthsales}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                         </div>
                         <div class="col-auto">
                            

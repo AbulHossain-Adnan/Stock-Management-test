@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Auth;
+
 
 class LoginController extends Controller
 {
@@ -40,6 +45,30 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('welcome');
+        return view('auth/login');
+    }
+
+    public function login(Request $request){
+        $request->validate([
+            'login' => 'required',
+            'password' => 'required|string',
+        ]);
+
+      
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
+        ? 'email' 
+        : 'username';
+
+
+        $request->merge([
+            $login_type => $request->input('login')
+        ]);
+
+       
+        if (Auth::attempt($request->only($login_type, 'password'))) {
+            return redirect()->intended('/');
+        }
+        
+        return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
     }
 }

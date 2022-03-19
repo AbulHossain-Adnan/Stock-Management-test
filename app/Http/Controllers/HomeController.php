@@ -29,13 +29,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $date=Carbon::today()->subDays(30);
+        
         return view('layouts.master',[
-            'total_admin'=>User::count(),
-            'total_customer'=>Customer::count(),
-            'lastmonthsales'=>Order::sum('subtotal'),
-
-
+            'total_admin'=>User::count()
+        
     ]);
     }
+
+    public function switch($local){
+        app()->setLocale($local);
+        session()->put('locale', $local);
+        return redirect()->back();
+     }
 }
