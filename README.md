@@ -1,4 +1,4 @@
-# inventory-test
+# Stock Management
 -----------------
 > This Project is ready for Production. If you find any bug or have any suggestion please create an Issue.
 
@@ -14,33 +14,19 @@
 - set up your database in the .env
 - run `` php artisan migrate --seed ``
 - run `` php artisan serve ``
-- then visit `` http://localhost:8000/admin/login ``.
+- then visit `` http://localhost:8000/login``.
 
 
 # Admin Credentials
 > Email: admin@gmail.com || Password: password
 
 
-## Inventory-Test Features
-
-- **Product management with multiple image and category select option**
-- **Category management**
-- **Subcategory management**
-- **Cutomer managment**
-- **POSS Systme with multiple product selling in one order product auto
- increment and valu calculations**
-- **Report management **
-- **Last 30 days selling products list**
-- **Less then 5 quantity products list**
-- **Top Customer List byorder count**
-- **Each product Sold List**
-- **Low Quanitity Alert Mail to Admin**
+## Stock-Management-Test Features
 
 
+- **defult login registration with email or username**
+- **Product management**
+- **Stock  management**
+- **Multilanguage English and Bangla**
 
-# inventory-managment-system
-# Simple-Test-StockManagementSystem
-# Simple-Test-StockManagementSystem
-# Simple-Test-StockManagementSystem
-# Simple-Test-StockManagementSystem
 # Stock-Mnagement
