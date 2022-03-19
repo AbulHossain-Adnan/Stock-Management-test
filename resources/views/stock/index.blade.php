@@ -20,9 +20,14 @@
         <div class="card-body">
           
               
-       
+		@if(Session::has('success'))
+			<div class="alert alert-success"> {{Session::get('success')}}</div>
+		@endif
+		@if(Session::has('info'))
+			<div class="alert alert-info"> {{Session::get('info')}}</div>
+		@endif
         <a class="btn btn-success btn-sm"  href="{{route('stock.create')}}">{{__('stock_index.new_stock')}}</a>
-                
+		
             <table class="table" id="data_table">
                 
             

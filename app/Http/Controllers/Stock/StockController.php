@@ -54,7 +54,7 @@ class StockController extends Controller
     public function store(Request $request)
     {
       $this->stockservice->createOrUpdate($request);
-        return redirect()->route('stock.index')->with('message','data stored succefully');      
+        return redirect()->route('stock.index')->with('success','data stored succefully');      
     }
             
     public function update(Request $request,Stock $stock)
@@ -62,7 +62,7 @@ class StockController extends Controller
 
 
         $this->stockservice->createOrUpdate($request,$stock);
-        return redirect()->route('stock.index')->with('message','data updated succefully');  
+        return redirect()->route('stock.index')->with('success','data updated succefully');  
     }
     public function edit($id){
         return view('stock/edit',['stock'=>Stock::findOrFail($id),'products'=>Product::all()]);

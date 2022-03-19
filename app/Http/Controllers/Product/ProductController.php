@@ -86,7 +86,7 @@ class ProductController extends Controller
         return response()->json('success',200);
     }
 
-
+    // for delete multiple product column 
     public function bulkdelete(Request $request){
         $this->productservice->productBulkDelete($request);
         return response()->json(['success' => true]);
