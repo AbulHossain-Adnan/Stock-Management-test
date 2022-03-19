@@ -8,9 +8,9 @@ use DB;
 
 Class StockService{
     
-	public function createOrUpdate($request, $id=null){
+	public function createOrUpdate($request, $stock=null){
 
-        if(is_null($id)){
+        if(is_null($stock)){
             $i = 0;
             foreach($request->product_id as $id){
                 $product = Stock::where('product_id',$id)->first();
@@ -18,25 +18,21 @@ Class StockService{
                     if($product){
                         DB::table('stocks')->where('product_id',$id)->update(['quantity'=>$product->quantity+$request->quantity[$i]]);
                     }
-
                     else{
                         $datasave=[ 
-                        
                             'date'=>$request->date[$i],
                             'product_id'=>$request->product_id[$i],
                             'quantity'=>$request->quantity[$i],
                         ];
                         DB::table('stocks')->insert($datasave);
-
                     }
             $i++;
 
             }
         }else{
-            DB::table('stocks')->where('product_id',$id)->update(['quantity'=>$request->quantity,'date'=>$request->date,'product_id'=>$request->product_id]);
+            $stock->update(['date'=>$request->date,'product_id'=>$request->product_id,'quantity'=>$request->quantity]);
         }
-       
-       
+
 	}
 
     public function stockDelete($stock_id){

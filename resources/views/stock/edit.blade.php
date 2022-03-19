@@ -20,7 +20,7 @@
 				<div class="card">
 					<div class="card-body">
                         
-						<!-- <a class="btn btn-warning btn-sm" href="{{route('sub_category.index')}}">ALL SubCATEGORY</a> -->
+						
 						
 
 

@@ -57,9 +57,11 @@ class StockController extends Controller
         return redirect()->route('stock.index')->with('message','data stored succefully');      
     }
             
-    public function update(Request $request,$id)
+    public function update(Request $request,Stock $stock)
     {
-        $this->stockservice->createOrUpdate($request,$id);
+
+
+        $this->stockservice->createOrUpdate($request,$stock);
         return redirect()->route('stock.index')->with('message','data updated succefully');  
     }
     public function edit($id){
