@@ -19,7 +19,17 @@
 			<div class="col-sm-12 m-auto">
 				<div class="card">
 					<div class="card-body">
-    
+          
+          @if ($errors->any())
+          <div class="alert alert-danger">
+     @foreach ($errors->all() as $error)
+     <span class="text-danger">{{$error}}</span><br>
+     @endforeach
+     </div>
+ @endif
+
+
+
               <form id="formdata2" action="{{route('stock.store')}}" method="post" enctype="multipart/form-data">
 							@csrf
               <div class="col-md-12" id="stockbox">
@@ -27,14 +37,20 @@
 							<div class="form-row" id="inputRow">
                 <div class="form-group col-md-3">
 									<label for="inputEmail4">{{__('stock_create.date')}}*</label>
+                  @if($errors->has('date'))
+                  <span class="text-danger">{{$message}}</span>
+                  @endif
+
                   <input type="date"  class="form-control"  name="date[]" value="{{old('date')}}" placeholder="{{__('stock_create.date')}}" >
 								</div> 
 
                   <div class="form-group col-md-3">
 									<label for="inputPassword4">{{__('stock_create.product_id')}}*</label>
                                     
-    
-                    <select id="" required="product_id" name="product_id[]" class="form-control">
+                  @error('product_id')
+									<span class="text-danger">{{$message}}</span>
+									@enderror
+                    <select id=""  name="product_id[]" class="form-control">
                     <option value="">Choose One</option>
                       
                         @foreach($products as $product)
@@ -47,8 +63,10 @@
 
                   <div class="form-group col-md-3">
 									<label for="inputEmail4">{{__('stock_create.product_quantity')}}*</label>
-									
-									<input type="text"  class="form-control" required="quantity" name="quantity[]" value="{{old('quantity')}}" placeholder="{{__('stock_create.product_quantity')}}" >
+                  @error('quantity')
+									<span class="text-danger">{{$message}}</span>
+									@enderror
+									<input type="text"  class="form-control"  name="quantity[]" value="{{old('quantity')}}" placeholder="{{__('stock_create.product_quantity')}}" >
 								</div>
 
                 <div class="form-group col-md-2">
@@ -89,7 +107,7 @@
                 <input type="date"  class="form-control"   name="date[]" >
 								</div> 
                   <div class="form-group col-md-3">
-                  <select id="" required name="product_id[]" class="form-control">
+                  <select id="" name="product_id[]" class="form-control">
                       @foreach($products as $product)
                       <option value="{{$product->id}}">{{$product->name}}</option>
                       @endforeach
@@ -97,7 +115,7 @@
                                
 								</div>
                   <div class="form-group col-md-3">
-									<input type="text"  class="form-control" required="quantity"  name="quantity[]" value="{{old('quantity')}}" placeholder="{{__('stock_create.product_quantity')}}" >
+									<input type="text"  class="form-control"   name="quantity[]" value="{{old('quantity')}}" placeholder="{{__('stock_create.product_quantity')}}" >
 								</div>
 
         <div class="form-group col-md-2">
@@ -131,7 +149,7 @@
 
 </script>
 
-<script>
+<!-- <script>
             $(document).ready(function(){
             $("#formdata2").validate({
             rules: {
@@ -166,7 +184,7 @@
             }
             });
             })
-            </script> 
+            </script>  -->
 
 
 

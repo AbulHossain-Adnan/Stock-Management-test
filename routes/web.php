@@ -13,12 +13,6 @@ use App\Http\Controllers\CustomLoginController;
 
 
 
-
-
-
-
-
-
 Route::get('adminlogout', [CustomLoginController::class, 'adminlogout'])
 ->name('adminlogout');
 

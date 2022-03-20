@@ -10,6 +10,7 @@ use Auth;
 use DB;
 use DataTables;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class StockController extends Controller
 {
@@ -53,8 +54,17 @@ class StockController extends Controller
 
     public function store(Request $request)
     {
-      $this->stockservice->createOrUpdate($request);
-        return redirect()->route('stock.index')->with('success','data stored succefully');      
+      $validator =  Validator::make($request->all(), [
+        'date.*' => 'required',
+        'product_id.*' => 'required',
+        'quantity.*' => 'required|numeric'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        $this->stockservice->createOrUpdate($request);
+        return redirect()->route('stock.index')->with('success','data stored succefully');       
     }
             
     public function update(Request $request,Stock $stock)
