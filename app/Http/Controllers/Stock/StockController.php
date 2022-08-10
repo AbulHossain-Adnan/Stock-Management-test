@@ -22,6 +22,40 @@ class StockController extends Controller
 
     public function index(Request $request)
     {
+
+        $abc=array(2022-06-28 23:58:03,2023-06-28 23:58:03);
+
+$lagest = array();
+$i=0;
+foreach($abc as $a) {
+    if($i==0) $b=$a;
+    if($b<$a) {
+        $b=$a;
+       
+    }
+    $i++;
+ }
+ $lagest=$b;
+ dd($lagest);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         if ($request->ajax()) {
             $data = Stock::select('*');
            
