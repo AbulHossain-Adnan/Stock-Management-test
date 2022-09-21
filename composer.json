@@ -11,6 +11,7 @@
         "h4cc/wkhtmltoimage-amd64": "0.12.x",
         "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "jimmyjs/laravel-report-generator": "^2.1",
+        "ladumor/laravel-pwa": "^0.0.3",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",

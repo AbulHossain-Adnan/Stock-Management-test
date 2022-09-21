@@ -177,7 +177,7 @@ return [
            Yoeunes\Toastr\ToastrServiceProvider::class,
             Yajra\DataTables\DataTablesServiceProvider::class,
             Yajra\DataTables\ButtonsServiceProvider::class,
-             
+            Ladumor\LaravelPwa\PWAServiceProvider::class,
             
             
             
@@ -234,6 +234,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
       
          
 
