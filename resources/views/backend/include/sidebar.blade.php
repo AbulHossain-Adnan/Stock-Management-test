@@ -63,6 +63,7 @@
               
             </ul>
           </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -76,6 +77,25 @@
                 <a href="{{route('stock.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> {{__('sideber.stock_list')}}</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+              post
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('stock.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> post</p>
                 </a>
               </li>
               
