@@ -33,6 +33,15 @@ Route::resource('stock',StockController::Class);
 Route::get('local/{local}',[HomeController::class,'switch']);
 
 
+Route::group(['domain' => 'domain1.test'], function () {
+
+    Route::get('/test', function () {
+       return "hello work";
+    });
+
+   
+});
+
 
 
 
